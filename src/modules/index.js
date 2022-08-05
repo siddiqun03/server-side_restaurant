@@ -1,4 +1,6 @@
 // require modules
+const userModule = require("./users");
+const foodModule = require("./foods");
 
 // export modules in arr
-module.exports = [];
+module.exports = [userModule, foodModule];
