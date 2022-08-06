@@ -5,6 +5,7 @@ module.exports = gql`
     id: ID!
     user_name: String!
     token: String!
+    role: String!
   }
 
   input Register {

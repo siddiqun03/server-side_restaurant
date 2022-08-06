@@ -9,17 +9,19 @@ module.exports = gql`
   }
 
   extend type Query {
-    getFoods: [Food]
-    getFood(foodId: ID!): Food
+    getFood(foodID: ID!): Food
+    getCategoryFoods(category_id: ID!): [Food]
   }
 
   input foodInput {
     name: String!
     price: Int!
     img: String!
+    category_id: ID!
   }
 
   extend type Mutation {
     createFood(createFood: foodInput): Food!
+    deleteFood(foodID: ID!): String!
   }
 `;

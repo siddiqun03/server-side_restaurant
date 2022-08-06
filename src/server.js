@@ -5,6 +5,7 @@ const mongoDb = require("./utils/mongoDb");
 
 const server = new ApolloServer({
   modules,
+  context: ({ req }) => ({ req }),
 });
 
 mongoose

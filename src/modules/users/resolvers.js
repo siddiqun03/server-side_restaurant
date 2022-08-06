@@ -20,12 +20,11 @@ module.exports = {
         throw new UserInputError("Wrong credentials", { errors });
       }
 
-      const mutch = await compare(password, user.password);
+      const mutch = compare(password, user.password);
       if (!mutch) {
         errors.general = "Wrong Username or Password";
         throw new UserInputError("Wrong Credentials", { errors });
       }
-
       const token = generateToken(user);
 
       return {
@@ -76,5 +75,6 @@ module.exports = {
     id: (global) => global.id,
     user_name: (global) => global.username,
     token: (global) => global.token,
+    role: (global) => global.role,
   },
 };
