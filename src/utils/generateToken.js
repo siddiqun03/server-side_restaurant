@@ -7,6 +7,7 @@ module.exports.generateToken = (data) => {
       id: data.id,
       user_name: data.username,
       role: data.role,
+      phone_number: data.userPhone,
     },
     process.env.SECRET_KEY,
     {

@@ -75,7 +75,6 @@ module.exports = {
 
         if (user && user?.role == "Admin") {
           const res = await model.findByIdAndDelete(categoryID);
-          console.log(res);
           return "Successfully deleted!";
         }
 

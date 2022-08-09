@@ -19,18 +19,12 @@ module.exports = {
       }
     },
     getCategoryFoods: async (_, { category_id }, context) => {
-      const user = checkAuth(context);
+      if (category_id) {
+        const categoryFoods = await model.find();
 
-      if (user) {
-        if (category_id) {
-          const categoryFoods = await model.find({
-            category_id: category_id.toString(),
-          });
+        const data = categoryFoods.filter((e) => e.categoryID == category_id);
 
-          const data = categoryFoods.filter((e) => e.categoryID == category_id);
-
-          return data;
-        }
+        return data;
       }
     },
   },

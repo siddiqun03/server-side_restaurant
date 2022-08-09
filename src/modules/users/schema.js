@@ -6,10 +6,12 @@ module.exports = gql`
     user_name: String!
     token: String!
     role: String!
+    user_phone: String!
   }
 
   input Register {
     user_name: String!
+    user_phone: String!
     password: String!
     confirm_password: String!
   }

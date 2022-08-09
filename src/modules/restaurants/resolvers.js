@@ -8,9 +8,9 @@ module.exports = {
   Query: {
     getRestaurants: async (_, {}, context) => {
       try {
-        const user = checkAuth(context);
+        console.log("1 ok", context)
 
-        if (user) {
+        if (true) {
           const restaurants = await model.find();
 
           return restaurants;

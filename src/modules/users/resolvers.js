@@ -35,8 +35,9 @@ module.exports = {
     },
     register: async (
       _,
-      { registerInput: { user_name, password, confirm_password } }
+      { registerInput: { user_name, user_phone, password, confirm_password } }
     ) => {
+      console.log(user_name, user_phone, password, confirm_password);
       const { errors, valid } = validateRegisterInput(
         user_name,
         password,
@@ -59,6 +60,7 @@ module.exports = {
         username: user_name,
         password,
         role: "User",
+        userPhone: user_phone,
       });
 
       const res = await newUser.save();
@@ -68,6 +70,7 @@ module.exports = {
         ...res._doc,
         id: res._id,
         token,
+        userPhone: res.userPhone,
       };
     },
   },
@@ -76,5 +79,6 @@ module.exports = {
     user_name: (global) => global.username,
     token: (global) => global.token,
     role: (global) => global.role,
+    user_phone: (global) => global.userPhone,
   },
 };
